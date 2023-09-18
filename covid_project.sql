@@ -3,7 +3,7 @@ SELECT TOP(100) * FROM [sql project covid].dbo.CovidDeaths$
 --changing NULL new_cases into 0 new_cases, it helps me with the next query
 UPDATE [sql project covid].dbo.CovidDeaths$
 SET new_cases = 0
-WHERE new_cases = NULL
+WHERE new_cases IS NULL
 
 -- new tests vs new cases per country
 SELECT continent, location, date, new_cases, new_tests, (new_cases/new_tests)*100 as positive_tests_percentage
